@@ -1,6 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+[System.Serializable]
+public class Pieza
+{
+    public Color colorFruta;
+    public TipoFruta tipoFruta;
+}
 public enum TipoFruta
 {
     Manzana,
@@ -19,8 +25,8 @@ public class PlayerController : MonoBehaviour
     public float fuerzaImpulso;
     public float fuerzaGiro;
 
-    public TipoFruta[] frutasDisponibles;
-    int frutaActual = -1;
+    public Pieza[] frutasDisponibles;
+    public int frutaActual = -1;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,41 +47,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CambiarFruta()
+    public void CambiarFruta(bool cambiadorRecogido = true)
     {
         int frutaCambiada = Random.Range(0, frutasDisponibles.Length);
         while (frutaActual == frutaCambiada) frutaCambiada = Random.Range(0, frutasDisponibles.Length);
 
         frutaActual = frutaCambiada;
 
-        switch (frutaCambiada)
+        gameObject.GetComponent<SpriteRenderer>().color = frutasDisponibles[frutaActual].colorFruta;
+
+        if (cambiadorRecogido) // Si se ha comenzado la partida, el cambiador no se desplaza ni se suman puntos
         {
-            case 0: // Manzana
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                break;
-
-            case 1: // Limon
-                gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-                break;
-
-            case 2: // Sandia
-                gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                break;
-
-            case 3: // Kiwi
-                gameObject.GetComponent<SpriteRenderer>().color = Color.brown;
-                break;
-
-            case 4: // Uva
-                gameObject.GetComponent<SpriteRenderer>().color = Color.purple;
-                break;
+            gameManager.puntos++;
+            gameManager.GenerarSiguienteObstaculo(Random.Range(0, gameManager.listaObstaculos.Length));
+            //gameManager.GenerarSiguienteObstaculo(0);
         }
 
-        gameManager.puntos++;
-        cambiador.transform.position = new Vector2(cambiador.transform.position.x, cambiador.transform.position.y + 3f);
-        Debug.Log("Fruta cambiada a la número: " + frutaCambiada + " de la lista");
-        Debug.Log("La fruta es: " + frutasDisponibles[frutaCambiada]);
-
+        //Debug.Log("Fruta cambiada a la número: " + frutaCambiada + " de la lista");
+        //Debug.Log("La fruta es: " + frutasDisponibles[frutaActual].tipoFruta);
     }
 
     // Update is called once per frame
@@ -84,7 +73,7 @@ public class PlayerController : MonoBehaviour
         if (gameManager.vivo)
         {
             Salto();
-            rb.rotation += -0.2f;
+            rb.rotation += -0.075f;
         }
     }
 
