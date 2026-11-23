@@ -83,5 +83,9 @@ public class PlayerController : MonoBehaviour
         {
             CambiarFruta();
         }
+        if (collision.CompareTag("Meta"))
+        {
+            gameManager.Ganar();
+        }
     }
 }
