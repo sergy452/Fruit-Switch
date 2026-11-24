@@ -6,13 +6,13 @@ public class Pieza
 {
     public Color colorFruta;
     public TipoFruta tipoFruta;
+    public Sprite spriteFruta;
 }
 public enum TipoFruta
 {
     Manzana,
     Limon,
     Sandia,
-    Kiwi,
     Uva
 }
 
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Salto()
     {
+        if (gameManager.dasheando) return;
         if (Input.GetButtonDown("Jump"))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, 0f);
@@ -54,7 +55,8 @@ public class PlayerController : MonoBehaviour
 
         frutaActual = frutaCambiada;
 
-        gameObject.GetComponent<SpriteRenderer>().color = frutasDisponibles[frutaActual].colorFruta;
+        //gameObject.GetComponent<SpriteRenderer>().color = frutasDisponibles[frutaActual].colorFruta;
+        gameObject.GetComponent<SpriteRenderer>().sprite = frutasDisponibles[frutaActual].spriteFruta;
 
         if (cambiadorRecogido) // Si se ha comenzado la partida, el cambiador no se desplaza ni se suman puntos
         {

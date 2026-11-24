@@ -211,5 +211,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
-  formaObstaculo: 1
+  tipoObstaculo: 1
   animator: {fileID: 0}

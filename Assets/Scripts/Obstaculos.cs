@@ -2,10 +2,8 @@ using UnityEngine;
 
 public enum TipoObstaculo
 {
-    Circulo,
-    Triangulo,
-    Cuadrado,
-    Rombo,
+    Rotador,
+    Movimiento, 
     ZonaMuerte
 }
 
@@ -13,7 +11,7 @@ public class Obstaculos : MonoBehaviour
 {
     GameManager gameManager;
 
-    public TipoObstaculo formaObstaculo;
+    public TipoObstaculo tipoObstaculo;
 
     public Animator animator;
 
@@ -25,25 +23,20 @@ public class Obstaculos : MonoBehaviour
 
     void ComprobarObstaculo()
     {
-        switch (formaObstaculo)
+        switch (tipoObstaculo)
         {
-            case TipoObstaculo.Circulo: // Si el obstáculo es un círculo, rotará
+            case TipoObstaculo.Rotador: // Si el obstáculo es un círculo, rotará
 
                 animator = GetComponentInParent<Animator>();
-                animator.SetTrigger("EsCirculo");
+                animator.SetTrigger("Rota");
                 break;
 
-            case TipoObstaculo.Triangulo:
+            case TipoObstaculo.Movimiento:
                 animator = GetComponent<Animator>();
-                animator.SetTrigger("EsTriangulo");
+                animator.SetTrigger("SeMueve");
                 break;
 
-            case TipoObstaculo.Cuadrado:
-
-                break;
-
-            case TipoObstaculo.Rombo:
-
+            case TipoObstaculo.ZonaMuerte:
                 break;
         }
     }
@@ -58,9 +51,12 @@ public class Obstaculos : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (formaObstaculo == TipoObstaculo.Circulo)
+            if (gameManager.dasheando) return;
+
+            if (tipoObstaculo == TipoObstaculo.Rotador)
             {
-                if (gameObject.GetComponent<SpriteRenderer>().color == collision.GetComponent<SpriteRenderer>().color) return;
+                PlayerController jugador = collision.GetComponent<PlayerController>();
+                if (gameObject.GetComponent<SpriteRenderer>().color == jugador.frutasDisponibles[jugador.frutaActual].colorFruta) return;
             }
             gameManager.Perder();
         }

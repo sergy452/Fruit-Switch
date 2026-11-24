@@ -36,10 +36,21 @@ public class GameManager : MonoBehaviour
     float segundos;
     public float tiempoMaximo;
 
+    [Space(5)]
+    [Header("Dash")]
+    public TMP_Text tiempoDashTMP;
+    public Image circuloTiempoDash;
+    float segundosDash;
+    public float tiempoMaximoDash;
+    bool dashActivo;
+    public bool dasheando;
+    TrailRenderer rastro;
+
     void Start()
     {
         puntuacionRecord = 0;
         controllerJugador = jugador.GetComponent<PlayerController>();
+        rastro = jugador.GetComponent<TrailRenderer>();
         StartCoroutine(EmpezarAJugar());
     }
 
@@ -60,6 +71,7 @@ public class GameManager : MonoBehaviour
         // Se resetea el tiempo y los puntos
         tiempoTMP.gameObject.SetActive(true);
         segundos = tiempoMaximo;
+        segundosDash = 0;
         puntos = 0;
         Time.timeScale = 0;
 
@@ -74,6 +86,8 @@ public class GameManager : MonoBehaviour
         camara.ForceCameraPosition(posicionInicialCamara, Quaternion.identity);
         camara.GetComponent<CinemachineCamera>().Target.TrackingTarget = jugador.transform;
 
+        // Se quita el rastro y se detiene al jugador
+        rastro.enabled = false;
         jugador.transform.position = Vector3.zero;
         jugador.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
         jugador.GetComponent<Rigidbody2D>().angularVelocity = 0f;
@@ -126,6 +140,7 @@ public class GameManager : MonoBehaviour
     public void GenerarSiguienteObstaculo(int obstaculoLista)
     {
         GameObject nuevoObstaculo = Instantiate(listaObstaculos[obstaculoLista]);
+        Animator animacionObstaculo = nuevoObstaculo.GetComponentInChildren<Obstaculos>().animator.GetComponentInChildren<Animator>();
         float posicionX = 0f;
 
         Debug.Log("Siguiente obstáculo: " + listaObstaculos[obstaculoLista].name);
@@ -140,9 +155,9 @@ public class GameManager : MonoBehaviour
         }
 
         // Se genera el obstáculo de la lista que se haya recibido y se cambia la posición del cambiador según el tipo de obstáculo
-        switch (obstaculoLista)
+        switch (nuevoObstaculo.GetComponentInChildren<Obstaculos>().tipoObstaculo)
         {
-            case 0: // Se genera un círculo
+            case TipoObstaculo.Rotador: // Se genera un obstáculo rotador
                 // Se asigna su posición
                 nuevoObstaculo.transform.position = new Vector2(posicionX, jugador.transform.position.y + 5f);
                 bool giraDerecha = Random.Range(0, 2) == 0;
@@ -176,7 +191,9 @@ public class GameManager : MonoBehaviour
                 }
 
                 // Iniciamos la animación correspondiente al obstáculo
-                nuevoObstaculo.GetComponentInChildren<Obstaculos>().animator.GetComponentInChildren<Animator>().SetTrigger("EsCirculo");
+                animacionObstaculo.SetTrigger("Rota");
+                if (obstaculoLista == 2)
+                    animacionObstaculo.speed = 0.65f;
 
                 // El cambiador se coloca en el centro del obstáculo en caso de que este sea un círculo
                 bool apareceDentro = Random.Range(0, 2) == 0;
@@ -185,13 +202,13 @@ public class GameManager : MonoBehaviour
 
                 break;
 
-            case 1: // Se genera un triángulo
+            case TipoObstaculo.Movimiento: // Se genera un triángulo
                 // Se asigna su posición
                 posicionX = Random.Range(-2.5f, 2.5f);
                 nuevoObstaculo.transform.position = new Vector2(posicionX, jugador.transform.position.y + 5f);
 
                 // Iniciamos la animación correspondiente al obstáculo
-                nuevoObstaculo.GetComponentInChildren<Obstaculos>().animator.SetTrigger("EsTriangulo");
+                animacionObstaculo.SetTrigger("SeMueve");
 
                 // El cambiador se coloca un poco debajo del obstáculo en caso de que este sea un triángulo moviéndose
                 cambiador.transform.position = new Vector2(0f, nuevoObstaculo.transform.position.y + 2.5f);
@@ -199,14 +216,48 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public IEnumerator ImpulsoDash()
+    {
+        rastro.enabled = true;
+        segundosDash = 0f;
+        
+        dasheando = true;
+        controllerJugador.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(controllerJugador.GetComponent<Rigidbody2D>().linearVelocityX, 0f);
+        controllerJugador.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        controllerJugador.GetComponent<Rigidbody2D>().AddForce(Vector3.up * controllerJugador.fuerzaImpulso * 4, ForceMode2D.Impulse);
+        controllerJugador.GetComponent<Rigidbody2D>().AddTorque(controllerJugador.fuerzaGiro * -3, ForceMode2D.Impulse);
+
+        yield return new WaitUntil(() => controllerJugador.GetComponent<Rigidbody2D>().linearVelocity.y <= 0);
+        rastro.enabled = false;
+        dasheando = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         puntosTMP.text = "Puntos: " + puntos;
 
+        // Se maneja el tiempo de juego
         tiempoTMP.text = Mathf.CeilToInt(segundos) + "s";
         circuloTiempo.fillAmount = segundos / tiempoMaximo;
         if (segundos > 0) segundos -= Time.deltaTime;
+
+        // Se maneja el cooldown del Dash
+        tiempoDashTMP.text = "Dash\n\"X\"\n" + Mathf.FloorToInt(segundosDash) + "s";
+        circuloTiempoDash.fillAmount = segundosDash / tiempoMaximoDash;
+
+        if (segundosDash < tiempoMaximoDash)
+        {
+            segundosDash += Time.deltaTime;
+            tiempoDashTMP.GetComponent<TMP_Text>().alpha = 100f / 255f;
+            circuloTiempoDash.GetComponent<Image>().color = new Color32(255, 148, 0, 100);
+        }
+        else
+        {
+            tiempoDashTMP.GetComponent<TMP_Text>().alpha = 255f / 255f;
+            circuloTiempoDash.GetComponent<Image>().color = new Color32(255, 148, 0, 255);
+            if (Input.GetKeyDown(KeyCode.X)) StartCoroutine(ImpulsoDash());
+        }
 
         // Si hemos llegado a la meta, la cámara deja de seguirnos
         if (meta.gameObject.activeSelf && Vector2.Distance(jugador.transform.position, meta.transform.position) < 3f) camara.GetComponent<CinemachineCamera>().Target.TrackingTarget = null;

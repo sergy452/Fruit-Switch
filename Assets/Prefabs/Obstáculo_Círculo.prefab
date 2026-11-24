@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 202674172640069439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -15.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,8 +35,8 @@ Transform:
 --- !u!1 &2041215637950088196
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1699494456741836927, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -53,8 +53,8 @@ GameObject:
 --- !u!4 &2602059103786335334
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041215637950088196}
   serializedVersion: 2
@@ -73,8 +73,8 @@ Transform:
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2835481641450731347, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041215637950088196}
   m_Enabled: 1
@@ -94,8 +94,8 @@ Animator:
 --- !u!114 &468513685562462284
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3274483177430572315, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041215637950088196}
   m_Enabled: 1
@@ -103,13 +103,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
-  formaObstaculo: 0
+  tipoObstaculo: 0
   animator: {fileID: 0}
 --- !u!1 &2155684825023585249
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3333478734979874504, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -127,8 +127,8 @@ GameObject:
 --- !u!4 &4281098600523559264
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2508630883729615833, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2155684825023585249}
   serializedVersion: 2
@@ -143,8 +143,8 @@ Transform:
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6959564266656041335, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2155684825023585249}
   m_Enabled: 1
@@ -202,8 +202,8 @@ SpriteRenderer:
 --- !u!60 &103025767238524895
 PolygonCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6947885113461059204, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2155684825023585249}
   m_Enabled: 1
@@ -282,8 +282,8 @@ PolygonCollider2D:
 --- !u!114 &2971943758841491891
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5367098454704175378, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2155684825023585249}
   m_Enabled: 1
@@ -291,13 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
-  formaObstaculo: 0
+  tipoObstaculo: 0
   animator: {fileID: 0}
 --- !u!1 &2408658025281307430
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2372734822895673454, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -315,8 +315,8 @@ GameObject:
 --- !u!4 &5140605233852273170
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 841091416017380115, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408658025281307430}
   serializedVersion: 2
@@ -331,8 +331,8 @@ Transform:
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1033256281916517033, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408658025281307430}
   m_Enabled: 1
@@ -390,8 +390,8 @@ SpriteRenderer:
 --- !u!60 &9108955399177537713
 PolygonCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5121879635517432238, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408658025281307430}
   m_Enabled: 1
@@ -470,8 +470,8 @@ PolygonCollider2D:
 --- !u!114 &7530044242331438151
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8742721268801263949, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408658025281307430}
   m_Enabled: 1
@@ -479,13 +479,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
-  formaObstaculo: 0
+  tipoObstaculo: 0
   animator: {fileID: 0}
 --- !u!1 &3971014921790408723
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 9052322694071531705, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -503,8 +503,8 @@ GameObject:
 --- !u!4 &7623450455088195951
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8693154217069283228, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971014921790408723}
   serializedVersion: 2
@@ -519,8 +519,8 @@ Transform:
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4699853311434445249, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971014921790408723}
   m_Enabled: 1
@@ -565,7 +565,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4782485208865208535, guid: c4d4f94024baf9f43a174774919458c0, type: 3}
-  m_Color: {r: 0, g: 0.5878153, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9614235, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -578,8 +578,8 @@ SpriteRenderer:
 --- !u!60 &139890004337423735
 PolygonCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5642301337677935390, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971014921790408723}
   m_Enabled: 1
@@ -658,8 +658,8 @@ PolygonCollider2D:
 --- !u!114 &3817215542019690843
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3201373732836420711, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971014921790408723}
   m_Enabled: 1
@@ -667,19 +667,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
-  formaObstaculo: 0
+  tipoObstaculo: 0
   animator: {fileID: 0}
 --- !u!1 &4445678869171254559
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4553770020380680302, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1376162679955103989}
   - component: {fileID: 2849355622075361652}
   - component: {fileID: 2825962588055601691}
+  - component: {fileID: 619760070198121811}
   m_Layer: 0
   m_Name: Trozo_1
   m_TagString: Untagged
@@ -690,8 +691,8 @@ GameObject:
 --- !u!4 &1376162679955103989
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4765829033756588059, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445678869171254559}
   serializedVersion: 2
@@ -706,8 +707,8 @@ Transform:
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6286098311156752834, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445678869171254559}
   m_Enabled: 1
@@ -765,8 +766,8 @@ SpriteRenderer:
 --- !u!60 &2825962588055601691
 PolygonCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 347044758814412543, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-  m_PrefabInstance: {fileID: 1995198592942642112}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445678869171254559}
   m_Enabled: 1
@@ -842,80 +843,17 @@ PolygonCollider2D:
       - {x: 0.01, y: -5.06}
       - {x: 0.48999998, y: -5.06}
   m_UseDelaunayMesh: 1
---- !u!1001 &1995198592942642112
-PrefabInstance:
+--- !u!114 &619760070198121811
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3133341892500650664}
-    m_Modifications:
-    - target: {fileID: 347044758814412543, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699494456741836927, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_Name
-      value: "C\xEDrculo"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753318313512454413, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5121879635517432238, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5642301337677935390, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6947885113461059204, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 445404102cab9bf49a2fca4ca0c56d92, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445678869171254559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74c71218205d164688f83a0ba7d5738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstaculos
+  tipoObstaculo: 0
+  animator: {fileID: 0}
