@@ -1,0 +1,8 @@
+A continuación se explicará cuál es cada sonido de la lista:
+
+	- 0: Salto
+	- 1: Cambiar fruta
+	- 2: Usar dash
+	- 3: Perder
+	- 4: Llegar a la meta
+	- 5: Sonido ambiente

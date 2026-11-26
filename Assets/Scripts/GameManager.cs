@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
     public bool dasheando;
     TrailRenderer rastro;
 
+    [Space(5)]
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] audioClip;
+
     void Start()
     {
         puntuacionRecord = 0;
@@ -70,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         // Se resetea el tiempo y los puntos
         tiempoTMP.gameObject.SetActive(true);
+        tiempoDashTMP.gameObject.SetActive(true);
         segundos = tiempoMaximo;
         segundosDash = 0;
         puntos = 0;
@@ -93,6 +99,7 @@ public class GameManager : MonoBehaviour
         jugador.GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
         // El cambiador vuelve a su posición inicial
+        cambiador.GetComponent<Animator>().Play("Cambiador", 0, 0f);
         cambiador.gameObject.SetActive(true);
         cambiador.transform.position = new Vector2(0f, 2.5f);
 
@@ -104,6 +111,8 @@ public class GameManager : MonoBehaviour
 
     public void ComenzarPartida()
     {
+        ReproducirSonido(0);
+        audioSource.Play();
         mensajeInicialTMP.gameObject.SetActive(false);
         controllerJugador.CambiarFruta(false);
         Time.timeScale = 1;
@@ -112,11 +121,14 @@ public class GameManager : MonoBehaviour
 
     public void Ganar()
     {
+        audioSource.Stop();
+        ReproducirSonido(4);
         vivo = false;
         Time.timeScale = 0;
         panelVictoria.gameObject.SetActive(true);
         puntosTMP.gameObject.SetActive(false);
         tiempoTMP.gameObject.SetActive(false);
+        tiempoDashTMP.gameObject.SetActive(false);
         mensajePuntuacionTMP.text = "Puntuación final: " + puntos;
         GameObject nuevoRecordTMP = puntuacionRecordTMP.transform.GetChild(0).gameObject;
 
@@ -132,6 +144,8 @@ public class GameManager : MonoBehaviour
 
     public void Perder()
     {
+        audioSource.Stop();
+        ReproducirSonido(3);
         perderTMP.gameObject.SetActive(true);
         vivo = false;
         Time.timeScale = 0;
@@ -142,6 +156,7 @@ public class GameManager : MonoBehaviour
         GameObject nuevoObstaculo = Instantiate(listaObstaculos[obstaculoLista]);
         Animator animacionObstaculo = nuevoObstaculo.GetComponentInChildren<Obstaculos>().animator.GetComponentInChildren<Animator>();
         float posicionX = 0f;
+        if (segundosDash < 10) segundosDash++;
 
         Debug.Log("Siguiente obstáculo: " + listaObstaculos[obstaculoLista].name);
 
@@ -218,6 +233,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ImpulsoDash()
     {
+        if (!vivo) yield break;
+        ReproducirSonido(2);
         rastro.enabled = true;
         segundosDash = 0f;
         
@@ -225,11 +242,16 @@ public class GameManager : MonoBehaviour
         controllerJugador.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(controllerJugador.GetComponent<Rigidbody2D>().linearVelocityX, 0f);
         controllerJugador.GetComponent<Rigidbody2D>().angularVelocity = 0f;
         controllerJugador.GetComponent<Rigidbody2D>().AddForce(Vector3.up * controllerJugador.fuerzaImpulso * 4, ForceMode2D.Impulse);
-        controllerJugador.GetComponent<Rigidbody2D>().AddTorque(controllerJugador.fuerzaGiro * -3, ForceMode2D.Impulse);
+        controllerJugador.GetComponent<Rigidbody2D>().AddTorque(controllerJugador.fuerzaGiro * -4.75f, ForceMode2D.Impulse);
 
         yield return new WaitUntil(() => controllerJugador.GetComponent<Rigidbody2D>().linearVelocity.y <= 0);
         rastro.enabled = false;
         dasheando = false;
+    }
+
+    public void ReproducirSonido(int sonido)
+    {
+        audioSource.PlayOneShot(audioClip[sonido]);
     }
 
     // Update is called once per frame

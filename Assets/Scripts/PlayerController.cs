@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if (gameManager.dasheando) return;
         if (Input.GetButtonDown("Jump"))
         {
+            gameManager.ReproducirSonido(0);
             rb.linearVelocity = new Vector2(rb.linearVelocityX, 0f);
             rb.angularVelocity = 0f;
             rb.AddForce(Vector3.up * fuerzaImpulso, ForceMode2D.Impulse);
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Cambiador"))
         {
+            gameManager.ReproducirSonido(1);
             CambiarFruta();
         }
         if (collision.CompareTag("Meta"))
